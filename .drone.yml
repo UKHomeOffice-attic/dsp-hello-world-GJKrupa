@@ -38,7 +38,7 @@ pipeline:
         kubectl create namespace ${KUBE_NAMESPACE} --insecure-skip-tls-verify=true --server=${KUBE_SERVER} --token=${KUBE_TOKEN}
 
         export APP_NAME=dsp-hello-world-gjkrupa
-        kd --file kube-templated/secret.yaml --file kube-templated/deployment.yaml --file kube-templated/service.yaml --file kube-templated/ingress.yaml
+        kd --insecure-skip-tls-verify --file kube-templated/secret.yaml --file kube-templated/deployment.yaml --file kube-templated/service.yaml --file kube-templated/ingress.yaml
     when:
       branch: master
       event: push
